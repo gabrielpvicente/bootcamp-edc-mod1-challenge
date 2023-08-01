@@ -3,7 +3,7 @@ resource "aws_glue_catalog_database" "aws_glue_catalog_database" {
 }
 
 resource "aws_glue_crawler" "glue_crawler" {
-  database_name = aws_glue_catalog_database.aws_glue_catalog_database.id
+  database_name = aws_glue_catalog_database.aws_glue_catalog_database.name
   name          = "bootcamp-edc-mod1-challenge-rais"
   role          = aws_iam_role.glue_role.arn
   table_prefix  = "parquet_tbl_"
