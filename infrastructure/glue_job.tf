@@ -1,6 +1,6 @@
 resource "aws_cloudwatch_log_group" "etl_glue_job_log" {
   name              = "example"
-  retention_in_days = 2
+  retention_in_days = 3
 }
 
 resource "aws_glue_job" "etl_glue_job" {
