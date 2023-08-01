@@ -8,9 +8,10 @@ resource "aws_glue_job" "etl_glue_job" {
   role_arn = aws_iam_role.glue_role.arn
   glue_version = "4.0"
   max_retries = 0
+  worker_type = G.8X
 
   command {
-    script_location = "${aws_s3_bucket.datalake_bucket.id}glue-job-code/etl-csv-to-parquet.py"
+    script_location = "s3://${aws_s3_bucket.datalake_bucket.id}/glue-job-code/etl-csv-to-parquet.py"
   }
 
   default_arguments = {
