@@ -9,6 +9,7 @@ resource "aws_glue_job" "etl_glue_job" {
   glue_version = "4.0"
   max_retries = 0
   worker_type = "G.8X"
+  number_of_workers = 10
 
   command {
     script_location = "s3://${aws_s3_bucket.datalake_bucket.id}/glue-job-code/etl-csv-to-parquet.py"
