@@ -10,7 +10,7 @@ resource "aws_glue_job" "etl_glue_job" {
   max_retries = 0
 
   command {
-    script_location = "${aws_s3_bucket.aws_s3_bucket.datalake_bucket.id}glue-job-code/etl-csv-to-parquet.py"
+    script_location = "${aws_s3_bucket.datalake_bucket.id}glue-job-code/etl-csv-to-parquet.py"
   }
 
   default_arguments = {
