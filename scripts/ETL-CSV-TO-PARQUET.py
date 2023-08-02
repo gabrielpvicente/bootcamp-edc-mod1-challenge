@@ -149,6 +149,7 @@ rais = rais.withColumn("ano", lit(2020)).withColumn("uf", f.col("municipio").cas
 rais = (
     rais
     .withColumn("mes_desligamento", f.col('mes_desligamento').cast('int'))
+    .withColumn("qtd_hora_contr", f.regexp_replace("qtd_hora_contr", ',', '.').cast('double'))
     .withColumn("vl_remun_dezembro_nom", f.regexp_replace("vl_remun_dezembro_nom", ',', '.').cast('double'))
     .withColumn("vl_remun_dezembro_sm", f.regexp_replace("vl_remun_dezembro_sm", ',', '.').cast('double'))
     .withColumn("vl_remun_media_nom", f.regexp_replace("vl_remun_media_nom", ',', '.').cast('double'))
